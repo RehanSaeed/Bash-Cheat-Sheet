@@ -2,7 +2,17 @@
 
  A cheat sheet for bash commands.
 
-## Directories
+## Navigating Directories
+
+```bash
+ls     # List directories
+ls -a  # List directories including hidden
+cd foo # Go to foo sub-directory
+cd ~   # Go to home directory
+cd -   # Go to last directory
+```
+
+## Creating Directories
 
 ```bash
 # Create a directory
@@ -15,7 +25,7 @@ mkdir --parents turtle/images
 mkdir --parents {alligator,crocodile}/videos
 ```
 
-## Files
+## Creating Files
 
 ```bash
 # Create file
@@ -27,4 +37,16 @@ touch {foo,bar}.txt
 echo "foo" > bar.txt
 # Append to file with content
 echo "foo" >> bar.txt
+```
+
+## Bash Profile
+
+- bash - `.bashrc`
+- zsh - `.zshrc`
+
+```bash
+# Always run ls after cd
+function cd {
+  builtin cd "$@" && ls
+}
 ```
