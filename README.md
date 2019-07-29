@@ -21,6 +21,14 @@ mkdir --parents foo/bar       # Create nested directory
 mkdir --parents {foo,bar}/baz # Create multiple nested directories
 ```
 
+## Moving Directories
+
+```bash
+cp --recursive foo bar # Copy directory
+mv foo bar             # Move directory
+rmdir foo              # Delete directory
+```
+
 ## Creating Files
 
 ```bash
