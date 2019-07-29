@@ -1,5 +1,10 @@
+# Bash Cheat Sheet
+
+ A cheat sheet for bash commands.
+
 ## Directories
 
+```bash
 # Create a directory
 mkdir reptiles
 # Create multiple directories
@@ -8,9 +13,11 @@ mkdir alligator crocodile snake
 mkdir --parents turtle/images
 # Create multiple nested directories
 mkdir --parents {alligator,crocodile}/videos
+```
 
-# Files
+## Files
 
+```bash
 # Create file
 touch foo.txt
 # Create multiple files
@@ -20,3 +27,4 @@ touch {foo,bar}.txt
 echo "foo" > bar.txt
 # Append to file with content
 echo "foo" >> bar.txt
+```
