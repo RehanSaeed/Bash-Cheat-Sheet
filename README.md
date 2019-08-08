@@ -5,8 +5,12 @@
 ## Navigating Directories
 
 ```bash
+pwd                    # Print current directory path
 ls                     # List directories
 ls -a                  # List directories including hidden
+tree                   # List directory and file tree
+tree -a                # List directory and file tree including hidden
+tree -d                # List directory tree
 cd foo                 # Go to foo sub-directory
 cd ~                   # Go to home directory
 cd -                   # Go to last directory
