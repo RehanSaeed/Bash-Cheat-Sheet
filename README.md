@@ -61,6 +61,22 @@ head foo.txt           # Print top 10 lines of file
 tail foo.txt           # Print bottom 10 lines of file
 ```
 
+## Finding Files
+
+```bash
+# locate uses an index and is fast
+locate foo.txt                        # Find a file
+locate --ignore-case                  # Find a file and ignore case
+locate f*.txt                         # Find a text file starting with 'f'
+# find doesn't use an index and is slow
+find /path -name foo.txt              # Find a file
+find /path -type f -name foo.txt      # Find a file
+find /path -type d -name foo          # Find a directory
+find /path -type l -name foo.txt      # Find a symbolic link
+find /path -type f -mtime +30         # Find files that haven't been modified in 30 days
+find /path -type f -mtime +30 -delete # Delete files that haven't been modified in 30 days
+```
+
 ## Bash Profile
 
 - bash - `.bashrc`
