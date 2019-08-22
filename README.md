@@ -94,21 +94,17 @@ grep --extended-regexp|-E 'foo|bar' /baz -R # Use regular expressions
 egrep 'foo|bar' /baz -R                     # Use regular expressions
 ```
 
-## Bash Profile
-
-- bash - `.bashrc`
-- zsh - `.zshrc`
+## Disk Usage
 
 ```bash
-# Always run ls after cd
-function cd {
-  builtin cd "$@" && ls
-}
+df                     # List disks, size, used and available space
+df -h|--human-readable # List disks, size, used and available space in a humarn readable format
 
-# Prompt user before overwriting any files
-alias cp='cp --interactive'
-alias mv='mv --interactive'
-alias rm='rm --interactive'
+du                     # List current directory, subdirectories and file sizes
+du /foo/bar            # List specified directory, subdirectories and file sizes
+du -h|--human-readable # List current directory, subdirectories and file sizes in a humarn readable format
+du -d|--max-depth      # List current directory, subdirectories and file sizes within the max depth
+du -d 0                # List current directory size
 ```
 
 ## Scheduled Tasks
@@ -138,4 +134,25 @@ at -r 1                    # Remove task with ID 1
 at now + 2 minutes         # Create a task in Vim to execute in 2 minutes
 at 12:34 PM next month     # Create a task in Vim to execute at 12:34 PM next month
 at tomorrow                # Create a task in Vim to execute tomorrow
+```
+
+## Bash Profile
+
+- bash - `.bashrc`
+- zsh - `.zshrc`
+
+```bash
+# Always run ls after cd
+function cd {
+  builtin cd "$@" && ls
+}
+
+# Prompt user before overwriting any files
+alias cp='cp --interactive'
+alias mv='mv --interactive'
+alias rm='rm --interactive'
+
+# Always show disk usage in a human readable format
+alias df='df -h'
+alias du='du -h'
 ```
