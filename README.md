@@ -110,3 +110,32 @@ alias cp='cp --interactive'
 alias mv='mv --interactive'
 alias rm='rm --interactive'
 ```
+
+## Scheduled Tasks
+
+```
+   *      *         *         *           *
+Minute, Hour, Day of month, Month, Day of the week
+```
+
+```bash
+crontab -l                 # List cron tab
+crontab -e                 # Edit cron tab in Vim
+crontab /path/crontab      # Load cron tab from a file
+crontab -l > /path/crontab # Save cron tab to a file
+
+* * * * * foo              # Run foo every minute
+*/15 * * * * foo           # Run foo every 15 minutes
+0 * * * * foo              # Run foo every hour
+15 6 * * * foo             # Run foo daily at 6:15 AM
+44 4 * * 5 foo             # Run foo every Friday at 4:44 AM
+0 0 1 * * foo              # Run foo at midnight on the first of the month
+0 0 1 1 * foo              # Run foo at midnight on the first of the year
+
+at -l                      # List scheduled tasks
+at -c 1                    # Show task with ID 1
+at -r 1                    # Remove task with ID 1
+at now + 2 minutes         # Create a task in Vim to execute in 2 minutes
+at 12:34 PM next month     # Create a task in Vim to execute at 12:34 PM next month
+at tomorrow                # Create a task in Vim to execute tomorrow
+```
