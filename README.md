@@ -107,6 +107,23 @@ du -d|--max-depth      # List current directory, subdirectories and file sizes w
 du -d 0                # List current directory size
 ```
 
+## Shutdown and Reboot
+
+```bash
+shutdown                     # Shutdown in 1 minute
+shutdown now "Cya later"     # Immediately shut down
+shutdown +5 "Cya later"      # Shutdown in 5 minutes
+
+shutdown --reboot            # Reboot in 1 minute
+shutdown -r now "Cya later"  # Immediately reboot
+shutdown -r +5 "Cya later"   # Reboot in 5 minutes
+
+shutdown -c                  # Cancel a shutdown or reboot
+
+reboot                       # Reboot now
+reboot -f                    # Force a reboot
+```
+
 ## Scheduled Tasks
 
 ```
