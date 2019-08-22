@@ -124,9 +124,23 @@ reboot                       # Reboot now
 reboot -f                    # Force a reboot
 ```
 
+## Identifying Processes
+
+```bash
+top                    # List all processes
+pidof foo              # Return the PID of all foo processes
+
+sleep 30 &             # Sleep for 30 seconds and move the process into the background
+jobs                   # List all background jobs
+jobs -p                # List all background jobs with their PID
+
+lsof                   # List all open files and the process using them
+lsof -itcp:4000        # Return the process listening on port 4000
+```
+
 ## Scheduled Tasks
 
-```
+```pre
    *      *         *         *           *
 Minute, Hour, Day of month, Month, Day of the week
 ```
