@@ -94,6 +94,12 @@ grep --extended-regexp|-E 'foo|bar' /baz -R # Use regular expressions
 egrep 'foo|bar' /baz -R                     # Use regular expressions
 ```
 
+## Compressing Files
+
+- zip - *.zip files
+- gzip - *.gz files
+- tar - *.tar, *.tar.gz, *.tpz and *.tgz files
+
 ## Disk Usage
 
 ```bash
@@ -128,6 +134,7 @@ reboot -f                    # Force a reboot
 
 ```bash
 top                    # List all processes
+htop             #
 pidof foo              # Return the PID of all foo processes
 
 sleep 30 &             # Sleep for 30 seconds and move the process into the background
@@ -136,6 +143,26 @@ jobs -p                # List all background jobs with their PID
 
 lsof                   # List all open files and the process using them
 lsof -itcp:4000        # Return the process listening on port 4000
+```
+
+## Process Priority
+
+Process priorities go from -20 (highest) to 19 (lowest).
+
+```bash
+nice -n -20 foo        # Change process priority by name
+renice 20 PID          # Change process priority by PID
+ps -o ni PID           # Return the process priority of PID
+```
+
+## Killing Processes
+
+```bash
+kill PID               # Shut down process by PID gracefully. Sends TERM signal.
+kill -9 PID            # Force shut down of process by PID. Sends SIGKILL signal.
+pkill foo              # Shut down process by name gracefully. Sends TERM signal.
+pkill -9 foo           # force shut down process by name. Sends SIGKILL signal.
+killall foo            # Kill all process with the specified name gracefully.
 ```
 
 ## Scheduled Tasks
