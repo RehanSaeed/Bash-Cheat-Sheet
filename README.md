@@ -96,9 +96,35 @@ egrep 'foo|bar' /baz -R                     # Use regular expressions
 
 ## Compressing Files
 
-- zip - *.zip files
-- gzip - *.gz files
-- tar - *.tar, *.tar.gz, *.tpz and *.tgz files
+### zip
+
+Compresses one or more files into *.zip files.
+
+```bash
+zip foo.zip /bar.txt                # Compress bar.txt into foo.zip
+zip foo.zip /bar.txt /baz.txt       # Compress bar.txt and baz.txt into foo.zip
+zip foo.zip /{bar,baz}.txt          # Compress bar.txt and baz.txt into foo.zip
+zip -r|--recurse-paths foo.zip /bar # Compress directory bar into foo.zip
+```
+
+### gzip
+
+Compresses a single file into *.gz files.
+
+```bash
+gzip /bar.txt foo.gz           # Compress bar.txt into foo.gz and then delete bar.txt
+gzip -k|--keep /bar.txt foo.gz # Compress bar.txt into foo.gz
+```
+
+### tar
+
+Compresses (optionally) and combines one or more files into a single *.tar, *.tar.gz, *.tpz or *.tgz file.
+
+```bash
+tar -c|--create -z|--gzip -f|--file=foo.tgz /bar.txt /baz.txt # Compress bar.txt and baz.txt into foo.tgz
+tar -c|--create -z|--gzip -f|--file=foo.tgz /{bar,baz}.txt    # Compress bar.txt and baz.txt into foo.tgz
+tar -c|--create -z|--gzip -f|--file=foo.tgz /bar              # Compress directory bar into foo.tgz
+```
 
 ## Disk Usage
 
