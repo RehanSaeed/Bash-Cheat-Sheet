@@ -253,9 +253,9 @@ at tomorrow                # Create a task in Vim to execute tomorrow
 ## Network Troubleshooting
 
 ```bash
-ping example.com                 # Send multiple ping requests using the ICMP protocol
-ping -c 10 -i 5 example.com      # Make 10 attempts, 5 seconds apart
-traceroute example.com           # List all servers the network traffic goes through
+ping example.com                                                    # Send multiple ping requests using the ICMP protocol
+ping -c 10 -i 5 example.com                                         # Make 10 attempts, 5 seconds apart
+traceroute example.com                                              # List all servers the network traffic goes through
 mtr -w|--report-wide example.com                                    # Continually list all servers the network traffic goes through
 mtr -r|--report -w|--report-wide -c|--report-cycles 100 example.com # Output a report that lists network traffic 100 times
 ```
