@@ -28,9 +28,14 @@ mkdir --parents {foo,bar}/baz # Create multiple nested directories
 ## Moving Directories
 
 ```bash
-cp --recursive foo bar # Copy directory
-mv foo bar             # Move directory
-rmdir foo              # Delete directory
+cp --recursive foo bar                                  # Copy directory
+mv foo bar                                              # Move directory
+rmdir foo                                               # Delete directory
+
+rsync -z|--compress -v|--verbose /foo /bar              # Copy directory, overwrites destination
+rsync -a|--archive -z|--compress -v|--verbose /foo /bar # Copy directory, without overwriting destination
+rsync -avz /foo username@hostname:/bar                  # Copy local directory to remote directory
+rsync -avz username@hostname:/foo /bar                  # Copy remote directory to local directory
 ```
 
 ## Creating Files
@@ -47,9 +52,12 @@ echo "foo" >> bar.txt  # Append to file with content
 ## Moving Files
 
 ```bash
-cp foo.txt bar.txt     # Copy file
-mv foo.txt bar.txt     # Move file
-rm foo.txt             # Delete file
+cp foo.txt bar.txt                                # Copy file
+mv foo.txt bar.txt                                # Move file
+rm foo.txt                                        # Delete file
+
+rsync -z|--compress -v|--verbose /foo.txt /bar    # Copy file quickly if not changed
+rsync z|--compress -v|--verbose /foo.txt /bar.txt # Copy and rename file quickly if not changed
 ```
 
 ## Reading Files
@@ -240,6 +248,15 @@ at -r 1                    # Remove task with ID 1
 at now + 2 minutes         # Create a task in Vim to execute in 2 minutes
 at 12:34 PM next month     # Create a task in Vim to execute at 12:34 PM next month
 at tomorrow                # Create a task in Vim to execute tomorrow
+```
+
+## Network Troubleshooting
+
+```bash
+ping example.com            # Send multiple ping requests using the ICMP protocol
+ping -c 10 -i 5 example.com # Make 10 attempts, 5 seconds apart
+traceroute example.com      # List all servers the network traffic goes through
+mtr example.com             # Continually list all servers the network traffic goes through
 ```
 
 ## Bash Profile
