@@ -116,7 +116,7 @@ gzip /bar.txt foo.gz           # Compress bar.txt into foo.gz and then delete ba
 gzip -k|--keep /bar.txt foo.gz # Compress bar.txt into foo.gz
 ```
 
-### tar
+### tar -c
 
 Compresses (optionally) and combines one or more files into a single *.tar, *.tar.gz, *.tpz or *.tgz file.
 
@@ -124,6 +124,28 @@ Compresses (optionally) and combines one or more files into a single *.tar, *.ta
 tar -c|--create -z|--gzip -f|--file=foo.tgz /bar.txt /baz.txt # Compress bar.txt and baz.txt into foo.tgz
 tar -c|--create -z|--gzip -f|--file=foo.tgz /{bar,baz}.txt    # Compress bar.txt and baz.txt into foo.tgz
 tar -c|--create -z|--gzip -f|--file=foo.tgz /bar              # Compress directory bar into foo.tgz
+```
+
+## Decompressing Files
+
+### unzip
+
+```bash
+unzip foo.zip          # Unzip foo.zip into current directory
+```
+
+### gunzip
+
+```bash
+gunzip foo.gz           # Unzip foo.gz into current directory and delete foo.gz
+gunzip -k|--keep foo.gz # Unzip foo.gz into current directory
+```
+
+### tar -x
+
+```bash
+tar -x|--extract -z|--gzip -f|--file=foo.tar.gz # Uncompress foo.tar.gz into current directory
+tar -x|--extract -f|--file=foo.tar              # Uncombine foo.tar into current directory
 ```
 
 ## Disk Usage
