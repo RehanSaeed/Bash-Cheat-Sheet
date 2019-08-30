@@ -169,6 +169,15 @@ du -d|--max-depth      # List current directory, subdirectories and file sizes w
 du -d 0                # List current directory size
 ```
 
+## Memory Usage
+
+```bash
+free                   # Show memory usage
+free -h|--human        # Show human readable memory usage
+free -h|--human --si   # Show human readable memory usage in power of 1000 instead of 1024
+free -s|--seconds 5    # Show memory usage and update continuously every five seconds
+```
+
 ## Shutdown and Reboot
 
 ```bash
