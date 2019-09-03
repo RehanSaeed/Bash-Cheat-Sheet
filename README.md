@@ -19,23 +19,30 @@ cd -                   # Go to last directory
 ## Creating Directories
 
 ```bash
-mkdir foo                     # Create a directory
-mkdir foo bar                 # Create multiple directories
-mkdir --parents foo/bar       # Create nested directory
-mkdir --parents {foo,bar}/baz # Create multiple nested directories
+mkdir foo                        # Create a directory
+mkdir foo bar                    # Create multiple directories
+mkdir -p|--parents foo/bar       # Create nested directory
+mkdir -p|--parents {foo,bar}/baz # Create multiple nested directories
 ```
 
 ## Moving Directories
 
 ```bash
-cp --recursive foo bar                                  # Copy directory
+cp -R|--recursive foo bar                               # Copy directory
 mv foo bar                                              # Move directory
-rmdir foo                                               # Delete directory
 
 rsync -z|--compress -v|--verbose /foo /bar              # Copy directory, overwrites destination
 rsync -a|--archive -z|--compress -v|--verbose /foo /bar # Copy directory, without overwriting destination
 rsync -avz /foo username@hostname:/bar                  # Copy local directory to remote directory
 rsync -avz username@hostname:/foo /bar                  # Copy remote directory to local directory
+```
+
+## Deleting Directories
+
+```bash
+rmdir foo                        # Delete non-empty directory
+rm -r|--recursive foo            # Delete directory including contents
+rm -r|--recursive -f|--force foo # Delete directory including contents, ignore nonexistent files and never prompt
 ```
 
 ## Creating Files
@@ -54,19 +61,26 @@ echo "foo" >> bar.txt  # Append to file with content
 ```bash
 cp foo.txt bar.txt                                # Copy file
 mv foo.txt bar.txt                                # Move file
-rm foo.txt                                        # Delete file
 
 rsync -z|--compress -v|--verbose /foo.txt /bar    # Copy file quickly if not changed
 rsync z|--compress -v|--verbose /foo.txt /bar.txt # Copy and rename file quickly if not changed
+```
+
+## Deleting Files
+
+```bash
+rm foo.txt            # Delete file
+rm -f|--force foo.txt # Delete file, ignore nonexistent files and never prompt
 ```
 
 ## Reading Files
 
 ```bash
 cat foo.txt            # Print all contents
-less foo.txt           # Print some contents at a time
+less foo.txt           # Print some contents at a time (g - go to top of file, SHIFT+g, go to bottom of file, /foo to search for 'foo')
 head foo.txt           # Print top 10 lines of file
 tail foo.txt           # Print bottom 10 lines of file
+open foo.txt           # Open file in the default editor
 ```
 
 ## File Permissions
@@ -110,19 +124,28 @@ chmod +x foo.sh          # Give everybody execute permission
 
 ```bash
 # locate uses an index and is fast
-locate foo.txt                        # Find a file
-locate --ignore-case                  # Find a file and ignore case
-locate f*.txt                         # Find a text file starting with 'f'
+locate foo.txt                             # Find a file
+locate --ignore-case                       # Find a file and ignore case
+locate f*.txt                              # Find a text file starting with 'f'
 # find doesn't use an index and is slow
-find /path -name foo.txt              # Find a file
-find /path -type f -name foo.txt      # Find a file
-find /path -type d -name foo          # Find a directory
-find /path -type l -name foo.txt      # Find a symbolic link
-find /path -type f -mtime +30         # Find files that haven't been modified in 30 days
-find /path -type f -mtime +30 -delete # Delete files that haven't been modified in 30 days
+find /path -name foo.txt                   # Find a file
+find /path -iname foo.txt                  # Find a file with case insensitive search
+find /path -name "*.txt"                   # Find all text files
+find /path -name foo.txt -delete           # Find a file and delete it
+find /path -name "*.png" -exec pngquant {} # Find all .png files and execute pngquant on it
+find /path -type f -name foo.txt           # Find a file
+find /path -type d -name foo               # Find a directory
+find /path -type l -name foo.txt           # Find a symbolic link
+find /path -type f -mtime +30              # Find files that haven't been modified in 30 days
+find /path -type f -mtime +30 -delete      # Delete files that haven't been modified in 30 days
 ```
 
 ## Find in Files
+
+
+
+-C 1 show one line above and below
+
 
 ```bash
 grep 'foo' /bar.txt                         # Search for 'foo' in file 'bar.txt'
@@ -132,8 +155,11 @@ grep 'foo' /bar -l|--files-with-matches     # Show only files that match
 grep 'foo' /bar -L|--files-without-match    # Show only files that don't match
 grep 'Foo' /bar -i|--ignore-case            # Case insensitive search
 grep 'foo' /bar -x|--line-regexp            # Match the entire line
+grep 'foo' /bar -C|--context 1              # Add N line of context above and below each search result
 grep 'foo' /bar -v|--invert-match           # Show only lines that don't match
 grep 'foo' /bar -c|--count                  # Count the number lines that match
+grep 'foo' /bar -n|--line-number            # Add line numbers
+grep 'foo' /bar --colour                    # Add colour to output
 grep 'foo\|bar' /baz -R                     # Search for 'foo' or 'bar' in directory 'baz'
 grep --extended-regexp|-E 'foo|bar' /baz -R # Use regular expressions
 egrep 'foo|bar' /baz -R                     # Use regular expressions
@@ -294,6 +320,18 @@ at -r 1                    # Remove task with ID 1
 at now + 2 minutes         # Create a task in Vim to execute in 2 minutes
 at 12:34 PM next month     # Create a task in Vim to execute at 12:34 PM next month
 at tomorrow                # Create a task in Vim to execute tomorrow
+```
+
+## HTTP Requests
+
+```bash
+curl https://example.com                      # Return response body
+curl -i https://example.com                   # Include status code and HTTP headers
+curl -L https://example.com                   # Follow redirects
+curl https://example.com -o foo.txt           # Output to a text file
+curl -H "User-Agent: Foo" https://example.com # Add a HTTP header
+curl -X POST -H "Content-Type: application/json" -d '{"foo":"bar"}' https://example.com # POST JSON
+curl -X POST -H --data-urlencode foo="bar" http://example.com                           # POST URL Form Encoded
 ```
 
 ## Network Troubleshooting
