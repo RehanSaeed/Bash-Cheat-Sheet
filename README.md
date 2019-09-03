@@ -301,9 +301,16 @@ at tomorrow                # Create a task in Vim to execute tomorrow
 ```bash
 ping example.com                                                    # Send multiple ping requests using the ICMP protocol
 ping -c 10 -i 5 example.com                                         # Make 10 attempts, 5 seconds apart
+
 traceroute example.com                                              # List all servers the network traffic goes through
+
 mtr -w|--report-wide example.com                                    # Continually list all servers the network traffic goes through
 mtr -r|--report -w|--report-wide -c|--report-cycles 100 example.com # Output a report that lists network traffic 100 times
+
+nmap 0.0.0.0                                                        # Scan for the 1000 most common open ports on localhost
+nmap 0.0.0.0 -p1-65535                                              # Scan for open ports on localhost between 1 and 65535
+nmap 192.168.4.3                                                    # Scan for the 1000 most common open ports on a remote IP address
+nmap -sP 192.168.1.1/24                                             # Discover all machines on the network by ping'ing them
 ```
 
 ## Terminal Multiplexers
