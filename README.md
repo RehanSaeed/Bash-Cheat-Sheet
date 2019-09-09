@@ -288,6 +288,16 @@ pkill -9 foo           # force shut down process by name. Sends SIGKILL signal.
 killall foo            # Kill all process with the specified name gracefully.
 ```
 
+## Date & Time
+
+```bash
+date                   # Print the date and time
+date --iso-8601        # Print the ISO8601 date
+date --iso-8601=ns     # Print the ISO8601 date and time
+
+time tree              # Time how long the tree command takes to execute
+```
+
 ## Scheduled Tasks
 
 ```pre
