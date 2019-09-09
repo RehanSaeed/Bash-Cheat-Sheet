@@ -142,11 +142,6 @@ find /path -type f -mtime +30 -delete      # Delete files that haven't been modi
 
 ## Find in Files
 
-
-
--C 1 show one line above and below
-
-
 ```bash
 grep 'foo' /bar.txt                         # Search for 'foo' in file 'bar.txt'
 grep 'foo' /bar -r|--recursive              # Search for 'foo' in directory 'bar'
