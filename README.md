@@ -160,6 +160,14 @@ grep --extended-regexp|-E 'foo|bar' /baz -R # Use regular expressions
 egrep 'foo|bar' /baz -R                     # Use regular expressions
 ```
 
+## Symbolic Links
+
+```bash
+ln -s|--symbolic foo bar            # Create a link 'bar' to the 'foo' folder
+ln -s|--symbolic -f|--force foo bar # Overwrite an existing symbolic link 'bar'
+ls -l                               # Show where symbolic links are pointing
+```
+
 ## Compressing Files
 
 ### zip
