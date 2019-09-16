@@ -5,15 +5,19 @@
 ## Navigating Directories
 
 ```bash
-pwd                    # Print current directory path
-ls                     # List directories
-ls -a                  # List directories including hidden
-tree                   # List directory and file tree
-tree -a                # List directory and file tree including hidden
-tree -d                # List directory tree
-cd foo                 # Go to foo sub-directory
-cd ~                   # Go to home directory
-cd -                   # Go to last directory
+pwd                       # Print current directory path
+ls                        # List directories
+ls -a|--all               # List directories including hidden
+ls -l                     # List directories in long form
+ls -l -h|--human-readable # List directories in long form with human readable sizes
+ls -t                     # List directories by modification time, newest first
+tree                      # List directory and file tree
+tree -a                   # List directory and file tree including hidden
+tree -d                   # List directory tree
+cd foo                    # Go to foo sub-directory
+cd                        # Go to home directory
+cd ~                      # Go to home directory
+cd -                      # Go to last directory
 ```
 
 ## Creating Directories
@@ -48,7 +52,7 @@ rm -r|--recursive -f|--force foo # Delete directory including contents, ignore n
 ## Creating Files
 
 ```bash
-touch foo.txt          # Create file
+touch foo.txt          # Create file or update existing files modified timestamp
 touch foo.txt bar.txt  # Create multiple files
 touch {foo,bar}.txt    # Create multiple files
 
