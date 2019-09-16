@@ -127,7 +127,12 @@ chmod +x foo.sh          # Give everybody execute permission
 ## Finding Files
 
 ```bash
+# Find binary files for a command
+type wget                                  # Find the binary
+which wget                                 # Find the binary
+whereis wget                               # Find the binary, source, and manual page files
 # locate uses an index and is fast
+updatedb                                   # Update the index
 locate foo.txt                             # Find a file
 locate --ignore-case                       # Find a file and ignore case
 locate f*.txt                              # Find a text file starting with 'f'
