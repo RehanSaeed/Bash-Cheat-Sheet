@@ -356,6 +356,8 @@ curl https://example.com -o foo.txt           # Output to a text file
 curl -H "User-Agent: Foo" https://example.com # Add a HTTP header
 curl -X POST -H "Content-Type: application/json" -d '{"foo":"bar"}' https://example.com # POST JSON
 curl -X POST -H --data-urlencode foo="bar" http://example.com                           # POST URL Form Encoded
+
+wget https://example.com/file.txt.            # Download a file to the current directory
 ```
 
 ## Network Troubleshooting
