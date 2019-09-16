@@ -244,6 +244,17 @@ free -h|--human --si   # Show human readable memory usage in power of 1000 inste
 free -s|--seconds 5    # Show memory usage and update continuously every five seconds
 ```
 
+## Packages
+
+```bash
+apt update             # Refreshes repository index
+apt search wget        # Search for a package
+apt show wget          # List information about the wget package
+apt install wget       # Install the wget package
+apt remove wget        # Removes the wget package
+apt upgrade            # Upgrades all upgradable packages
+```
+
 ## Shutdown and Reboot
 
 ```bash
