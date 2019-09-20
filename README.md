@@ -459,3 +459,73 @@ alias rm='rm --interactive'
 alias df='df -h'
 alias du='du -h'
 ```
+
+## Bash Script
+
+### Variables
+
+```bash
+foo=123     # Initialize variable foo with 123
+echo $foo
+
+export foo  # Make foo available to child processes
+unset foo   # Make foo unavailable to child processes
+```
+
+### Environment Variables
+
+```bash
+env        # List all environment variables
+echo $PATH # Print PATH environment variable
+```
+
+### Functions
+
+```bash
+greet() {
+  local world = "World"
+  echo "$1 $world"
+  return "$1 $world"
+}
+greet "Hello"
+greeting=$(greet "Hello")
+```
+
+### Exit Codes
+
+```bash
+exit 0   # Exit the script successfully
+exit 1   # Exit the script unsuccessfully
+echo $?  # Print the last exit code
+```
+
+### Conditional Statements
+
+#### Operators
+
+- `-eq` - Equals
+- `-ne` - Not Equals
+- `-gt` - Greater Than
+- `-lt` - Less Than
+- `-e` foo.txt - Check file exists
+- `-z` foo - Check if variable exists
+
+#### If Statements
+
+```bash
+if [[$foo = 'bar']]; then
+  echo 'one'
+elif [[$foo = 'bar']] || [[$foo = 'baz']]; then
+  echo 'two'
+elif [[$foo = 'ban']] && [[$USER = 'bat']]; then
+  echo 'three'
+else
+  echo 'four'
+fi
+```
+
+#### Inline If Statements
+
+```bash
+[[ $USER = 'rehan' ]] && echo 'yes' || echo 'no'
+```
