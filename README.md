@@ -27,6 +27,8 @@ mkdir foo                        # Create a directory
 mkdir foo bar                    # Create multiple directories
 mkdir -p|--parents foo/bar       # Create nested directory
 mkdir -p|--parents {foo,bar}/baz # Create multiple nested directories
+
+mktemp -d|--directory            # Create a temporary directory
 ```
 
 ## Moving Directories
@@ -56,8 +58,16 @@ touch foo.txt          # Create file or update existing files modified timestamp
 touch foo.txt bar.txt  # Create multiple files
 touch {foo,bar}.txt    # Create multiple files
 
-echo "foo" > bar.txt   # Overwrite file with content
-echo "foo" >> bar.txt  # Append to file with content
+mktemp                 # Create a temporary file
+```
+
+## Redirecting Standard Output & Error
+
+```bash
+echo "foo" > bar.txt                   # Overwrite file with content
+echo "foo" >> bar.txt                  # Append to file with content
+wget https://error.com 2> stderror.txt # Redirect the standard error output to a file
+wget https://example.com 1> stdin.txt  # Redirect the standard output to a file
 ```
 
 ## Moving Files
