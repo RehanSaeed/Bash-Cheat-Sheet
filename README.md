@@ -126,12 +126,17 @@ chmod +x foo.sh          # Give everybody execute permission
 
 ## Finding Files
 
+`locate` uses an index and is fast.
+
 ```bash
-# locate uses an index and is fast
 locate foo.txt                             # Find a file
 locate --ignore-case                       # Find a file and ignore case
 locate f*.txt                              # Find a text file starting with 'f'
-# find doesn't use an index and is slow
+```
+
+`find` doesn't use an index and is slow.
+
+```bash
 find /path -name foo.txt                   # Find a file
 find /path -iname foo.txt                  # Find a file with case insensitive search
 find /path -name "*.txt"                   # Find all text files
@@ -149,7 +154,7 @@ find /path -type f -mtime +30 -delete      # Delete files that haven't been modi
 ```bash
 grep 'foo' /bar.txt                         # Search for 'foo' in file 'bar.txt'
 grep 'foo' /bar -r|--recursive              # Search for 'foo' in directory 'bar'
-grep 'foo' /bar -R|--dereference-recusive   # Search for 'foo' in directory 'bar' and follow symbolic links
+grep 'foo' /bar -R|--dereference-recursive  # Search for 'foo' in directory 'bar' and follow symbolic links
 grep 'foo' /bar -l|--files-with-matches     # Show only files that match
 grep 'foo' /bar -L|--files-without-match    # Show only files that don't match
 grep 'Foo' /bar -i|--ignore-case            # Case insensitive search
@@ -222,19 +227,19 @@ gunzip -k|--keep foo.gz # Unzip foo.gz into current directory
 ### tar -x
 
 ```bash
-tar -x|--extract -z|--gzip -f|--file=foo.tar.gz # Uncompress foo.tar.gz into current directory
-tar -x|--extract -f|--file=foo.tar              # Uncombine foo.tar into current directory
+tar -x|--extract -z|--gzip -f|--file=foo.tar.gz # Un-compress foo.tar.gz into current directory
+tar -x|--extract -f|--file=foo.tar              # Un-combine foo.tar into current directory
 ```
 
 ## Disk Usage
 
 ```bash
 df                     # List disks, size, used and available space
-df -h|--human-readable # List disks, size, used and available space in a humarn readable format
+df -h|--human-readable # List disks, size, used and available space in a human readable format
 
 du                     # List current directory, subdirectories and file sizes
 du /foo/bar            # List specified directory, subdirectories and file sizes
-du -h|--human-readable # List current directory, subdirectories and file sizes in a humarn readable format
+du -h|--human-readable # List current directory, subdirectories and file sizes in a human readable format
 du -d|--max-depth      # List current directory, subdirectories and file sizes within the max depth
 du -d 0                # List current directory size
 ```
