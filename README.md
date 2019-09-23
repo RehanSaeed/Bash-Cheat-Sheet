@@ -505,11 +505,13 @@ alias du='du -h'
 ### Variables
 
 ```bash
-foo=123     # Initialize variable foo with 123
-echo $foo
+foo=123                # Initialize variable foo with 123
+echo $foo              # Print variable foo
+echo ${foo}_'bar'      # Print variable foo followed by _bar
+echo ${foo:-'default'} # Print variable foo if it exists otherwise print default
 
-export foo  # Make foo available to child processes
-unset foo   # Make foo unavailable to child processes
+export foo             # Make foo available to child processes
+unset foo              # Make foo unavailable to child processes
 ```
 
 ### Environment Variables
