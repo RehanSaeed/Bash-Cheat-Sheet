@@ -27,6 +27,8 @@ mkdir foo                        # Create a directory
 mkdir foo bar                    # Create multiple directories
 mkdir -p|--parents foo/bar       # Create nested directory
 mkdir -p|--parents {foo,bar}/baz # Create multiple nested directories
+
+mktemp -d|--directory            # Create a temporary directory
 ```
 
 ## Moving Directories
@@ -56,8 +58,16 @@ touch foo.txt          # Create file or update existing files modified timestamp
 touch foo.txt bar.txt  # Create multiple files
 touch {foo,bar}.txt    # Create multiple files
 
-echo "foo" > bar.txt   # Overwrite file with content
-echo "foo" >> bar.txt  # Append to file with content
+mktemp                 # Create a temporary file
+```
+
+## Redirecting Standard Output & Error
+
+```bash
+echo "foo" > bar.txt                   # Overwrite file with content
+echo "foo" >> bar.txt                  # Append to file with content
+wget https://error.com 2> stderror.txt # Redirect the standard error output to a file
+wget https://example.com 1> stdin.txt  # Redirect the standard output to a file
 ```
 
 ## Moving Files
@@ -127,17 +137,27 @@ chmod +x foo.sh          # Give everybody execute permission
 
 ## Finding Files
 
+Find binary files for a command.
+
 ```bash
-# Find binary files for a command
 type wget                                  # Find the binary
 which wget                                 # Find the binary
 whereis wget                               # Find the binary, source, and manual page files
-# locate uses an index and is fast
+```
+
+`locate` uses an index and is fast.
+
+```bash
 updatedb                                   # Update the index
+
 locate foo.txt                             # Find a file
 locate --ignore-case                       # Find a file and ignore case
 locate f*.txt                              # Find a text file starting with 'f'
-# find doesn't use an index and is slow
+```
+
+`find` doesn't use an index and is slow.
+
+```bash
 find /path -name foo.txt                   # Find a file
 find /path -iname foo.txt                  # Find a file with case insensitive search
 find /path -name "*.txt"                   # Find all text files
@@ -155,7 +175,7 @@ find /path -type f -mtime +30 -delete      # Delete files that haven't been modi
 ```bash
 grep 'foo' /bar.txt                         # Search for 'foo' in file 'bar.txt'
 grep 'foo' /bar -r|--recursive              # Search for 'foo' in directory 'bar'
-grep 'foo' /bar -R|--dereference-recusive   # Search for 'foo' in directory 'bar' and follow symbolic links
+grep 'foo' /bar -R|--dereference-recursive  # Search for 'foo' in directory 'bar' and follow symbolic links
 grep 'foo' /bar -l|--files-with-matches     # Show only files that match
 grep 'foo' /bar -L|--files-without-match    # Show only files that don't match
 grep 'Foo' /bar -i|--ignore-case            # Case insensitive search
@@ -228,19 +248,19 @@ gunzip -k|--keep foo.gz # Unzip foo.gz into current directory
 ### tar -x
 
 ```bash
-tar -x|--extract -z|--gzip -f|--file=foo.tar.gz # Uncompress foo.tar.gz into current directory
-tar -x|--extract -f|--file=foo.tar              # Uncombine foo.tar into current directory
+tar -x|--extract -z|--gzip -f|--file=foo.tar.gz # Un-compress foo.tar.gz into current directory
+tar -x|--extract -f|--file=foo.tar              # Un-combine foo.tar into current directory
 ```
 
 ## Disk Usage
 
 ```bash
 df                     # List disks, size, used and available space
-df -h|--human-readable # List disks, size, used and available space in a humarn readable format
+df -h|--human-readable # List disks, size, used and available space in a human readable format
 
 du                     # List current directory, subdirectories and file sizes
 du /foo/bar            # List specified directory, subdirectories and file sizes
-du -h|--human-readable # List current directory, subdirectories and file sizes in a humarn readable format
+du -h|--human-readable # List current directory, subdirectories and file sizes in a human readable format
 du -d|--max-depth      # List current directory, subdirectories and file sizes within the max depth
 du -d 0                # List current directory size
 ```
@@ -473,4 +493,74 @@ alias rm='rm --interactive'
 # Always show disk usage in a human readable format
 alias df='df -h'
 alias du='du -h'
+```
+
+## Bash Script
+
+### Variables
+
+```bash
+foo=123     # Initialize variable foo with 123
+echo $foo
+
+export foo  # Make foo available to child processes
+unset foo   # Make foo unavailable to child processes
+```
+
+### Environment Variables
+
+```bash
+env        # List all environment variables
+echo $PATH # Print PATH environment variable
+```
+
+### Functions
+
+```bash
+greet() {
+  local world = "World"
+  echo "$1 $world"
+  return "$1 $world"
+}
+greet "Hello"
+greeting=$(greet "Hello")
+```
+
+### Exit Codes
+
+```bash
+exit 0   # Exit the script successfully
+exit 1   # Exit the script unsuccessfully
+echo $?  # Print the last exit code
+```
+
+### Conditional Statements
+
+#### Operators
+
+- `-eq` - Equals
+- `-ne` - Not Equals
+- `-gt` - Greater Than
+- `-lt` - Less Than
+- `-e` foo.txt - Check file exists
+- `-z` foo - Check if variable exists
+
+#### If Statements
+
+```bash
+if [[$foo = 'bar']]; then
+  echo 'one'
+elif [[$foo = 'bar']] || [[$foo = 'baz']]; then
+  echo 'two'
+elif [[$foo = 'ban']] && [[$USER = 'bat']]; then
+  echo 'three'
+else
+  echo 'four'
+fi
+```
+
+#### Inline If Statements
+
+```bash
+[[ $USER = 'rehan' ]] && echo 'yes' || echo 'no'
 ```
