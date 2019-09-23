@@ -85,6 +85,7 @@ less foo.txt           # Print some contents at a time (g - go to top of file, S
 head foo.txt           # Print top 10 lines of file
 tail foo.txt           # Print bottom 10 lines of file
 open foo.txt           # Open file in the default editor
+wc foo.txt             # List number of lines words and characters in the file
 ```
 
 ## File Permissions
@@ -372,18 +373,42 @@ wget https://example.com/file.txt.            # Download a file to the current d
 ## Network Troubleshooting
 
 ```bash
-ping example.com                                                    # Send multiple ping requests using the ICMP protocol
-ping -c 10 -i 5 example.com                                         # Make 10 attempts, 5 seconds apart
+ping example.com            # Send multiple ping requests using the ICMP protocol
+ping -c 10 -i 5 example.com # Make 10 attempts, 5 seconds apart
 
-traceroute example.com                                              # List all servers the network traffic goes through
+ip addr                     # List IP addresses on the system
+ip route show               # Show IP addresses to router
+
+netstat -i|--interfaces     # List all network interfaces and in/out usage
+netstat -l|--listening      # List all open ports
+
+traceroute example.com      # List all servers the network traffic goes through
 
 mtr -w|--report-wide example.com                                    # Continually list all servers the network traffic goes through
 mtr -r|--report -w|--report-wide -c|--report-cycles 100 example.com # Output a report that lists network traffic 100 times
 
-nmap 0.0.0.0                                                        # Scan for the 1000 most common open ports on localhost
-nmap 0.0.0.0 -p1-65535                                              # Scan for open ports on localhost between 1 and 65535
-nmap 192.168.4.3                                                    # Scan for the 1000 most common open ports on a remote IP address
-nmap -sP 192.168.1.1/24                                             # Discover all machines on the network by ping'ing them
+nmap 0.0.0.0                # Scan for the 1000 most common open ports on localhost
+nmap 0.0.0.0 -p1-65535      # Scan for open ports on localhost between 1 and 65535
+nmap 192.168.4.3            # Scan for the 1000 most common open ports on a remote IP address
+nmap -sP 192.168.1.1/24     # Discover all machines on the network by ping'ing them
+```
+
+## DNS
+
+```bash
+host example.com            # Show the IPv4 and IPv6 addresses
+
+dig example.com             # Show complete DNS information
+
+cat /etc/resolv.conf        # resolv.conf lists nameservers
+```
+
+## Hardware
+
+```bash
+lsusb                  # List USB devices
+lspci                  # List PCI hardware
+lshw                   # List all hardware
 ```
 
 ## Terminal Multiplexers
