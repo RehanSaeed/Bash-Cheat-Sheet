@@ -2,6 +2,15 @@
 
  A cheat sheet for bash commands.
 
+## Command History
+
+```bash
+!!            # Run the last command
+
+touch foo.sh
+chmod +x !$   # !$ is the last argument of the last command i.e. foo.sh
+```
+
 ## Navigating Directories
 
 ```bash
