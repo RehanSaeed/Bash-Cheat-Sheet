@@ -11,6 +11,8 @@ ls -a|--all               # List directories including hidden
 ls -l                     # List directories in long form
 ls -l -h|--human-readable # List directories in long form with human readable sizes
 ls -t                     # List directories by modification time, newest first
+stat foo.txt              # List size, created and modified timestamps for a file
+stat foo                  # List size, created and modified timestamps for a directory
 tree                      # List directory and file tree
 tree -a                   # List directory and file tree including hidden
 tree -d                   # List directory tree
@@ -57,6 +59,8 @@ rm -r|--recursive -f|--force foo # Delete directory including contents, ignore n
 touch foo.txt          # Create file or update existing files modified timestamp
 touch foo.txt bar.txt  # Create multiple files
 touch {foo,bar}.txt    # Create multiple files
+touch test{1..3}       # Create test1, test2 and test3 files
+touch test{a..c}       # Create testa, testb and testc files
 
 mktemp                 # Create a temporary file
 ```
@@ -305,8 +309,9 @@ reboot -f                    # Force a reboot
 ## Identifying Processes
 
 ```bash
-top                    # List all processes
-htop             #
+top                    # List all processes interactively
+htop                   # List all processes interactively
+ps all                 # List all processes
 pidof foo              # Return the PID of all foo processes
 
 sleep 30 &             # Sleep for 30 seconds and move the process into the background
