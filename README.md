@@ -77,10 +77,11 @@ mktemp                 # Create a temporary file
 ## Redirecting Standard Output & Error
 
 ```bash
-echo "foo" > bar.txt                   # Overwrite file with content
-echo "foo" >> bar.txt                  # Append to file with content
-wget https://error.com 2> stderror.txt # Redirect the standard error output to a file
-wget https://example.com 1> stdin.txt  # Redirect the standard output to a file
+echo "foo" > bar.txt       # Overwrite file with content
+echo "foo" >> bar.txt      # Append to file with content
+ls noexist 2> stderror.txt # Redirect the standard error output to a file
+ls exists 1> stdout.txt    # Redirect the standard output to a file
+ls 2>&1 out.txt            # Redirect standard output and error to a file 
 ```
 
 ## Moving Files
