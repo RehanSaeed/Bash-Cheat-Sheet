@@ -324,6 +324,11 @@ htop                   # List all processes interactively
 ps all                 # List all processes
 pidof foo              # Return the PID of all foo processes
 
+CTRL+Z                 # Suspend a process running in the foreground
+bg                     # Resume a suspended process and run in the background
+fg                     # Bring the last background process to the foreground
+fg 1                   # Bring the background process with the PID to the foreground
+
 sleep 30 &             # Sleep for 30 seconds and move the process into the background
 jobs                   # List all background jobs
 jobs -p                # List all background jobs with their PID
@@ -345,6 +350,7 @@ ps -o ni PID           # Return the process priority of PID
 ## Killing Processes
 
 ```bash
+CTRL+C                 # Kill a process running in the foreground
 kill PID               # Shut down process by PID gracefully. Sends TERM signal.
 kill -9 PID            # Force shut down of process by PID. Sends SIGKILL signal.
 pkill foo              # Shut down process by name gracefully. Sends TERM signal.
