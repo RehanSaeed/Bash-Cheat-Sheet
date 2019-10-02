@@ -74,14 +74,18 @@ touch test{a..c}       # Create testa, testb and testc files
 mktemp                 # Create a temporary file
 ```
 
-## Redirecting Standard Output & Error
+## Standard Output, Standard Error and Standard Input
 
 ```bash
 echo "foo" > bar.txt       # Overwrite file with content
 echo "foo" >> bar.txt      # Append to file with content
-ls noexist 2> stderror.txt # Redirect the standard error output to a file
+
 ls exists 1> stdout.txt    # Redirect the standard output to a file
-ls 2>&1 out.txt            # Redirect standard output and error to a file 
+ls noexist 2> stderror.txt # Redirect the standard error output to a file
+ls 2>&1 out.txt            # Redirect standard output and error to a file
+ls > /dev/null             # Discard standard output and error
+
+read foo                   # Read from standard input and write to the variable foo
 ```
 
 ## Moving Files
@@ -521,7 +525,11 @@ alias du='du -h'
 ### Variables
 
 ```bash
+#!/bin/bash
+
 foo=123                # Initialize variable foo with 123
+declare -i foo=123     # Initialize an integer foo with 123
+declare -r foo=123     # Initialize readonly variable foo with 123
 echo $foo              # Print variable foo
 echo ${foo}_'bar'      # Print variable foo followed by _bar
 echo ${foo:-'default'} # Print variable foo if it exists otherwise print default
@@ -533,6 +541,8 @@ unset foo              # Make foo unavailable to child processes
 ### Environment Variables
 
 ```bash
+#!/bin/bash
+
 env        # List all environment variables
 echo $PATH # Print PATH environment variable
 ```
@@ -540,6 +550,8 @@ echo $PATH # Print PATH environment variable
 ### Functions
 
 ```bash
+#!/bin/bash
+
 greet() {
   local world = "World"
   echo "$1 $world"
@@ -552,6 +564,8 @@ greeting=$(greet "Hello")
 ### Exit Codes
 
 ```bash
+#!/bin/bash
+
 exit 0   # Exit the script successfully
 exit 1   # Exit the script unsuccessfully
 echo $?  # Print the last exit code
@@ -571,6 +585,8 @@ echo $?  # Print the last exit code
 #### If Statements
 
 ```bash
+#!/bin/bash
+
 if [[$foo = 'bar']]; then
   echo 'one'
 elif [[$foo = 'bar']] || [[$foo = 'baz']]; then
@@ -585,5 +601,56 @@ fi
 #### Inline If Statements
 
 ```bash
+#!/bin/bash
+
 [[ $USER = 'rehan' ]] && echo 'yes' || echo 'no'
+```
+
+#### While Loops
+
+```bash
+#!/bin/bash
+
+declare -i counter
+counter=10
+while [$counter -gt 2]; do
+  echo The counter is $counter
+  counter=counter-1
+done
+```
+
+#### For Loops
+
+```bash
+#!/bin/bash
+
+for i in {0..10..2}
+  do
+    echo "Index: $i"
+  done
+
+for filename in file1 file2 file3
+  do
+    echo "Content: " >> $filename
+  done
+```
+
+#### Case Statements
+
+```bash
+#!/bin/bash
+
+echo 'What's the weather like tomorrow?'
+read weather
+
+case $weather in
+  sunny | warm ) echo 'Nice weather: ' $weather
+  ;;
+  cloudy | cool ) echo 'Not bad weather: ' $weather
+  ;;
+  rainy | cold ) echo 'Terrible weather: ' $weather
+  ;;
+  * ) echo 'Don't understand'
+  ;;
+esac
 ```
