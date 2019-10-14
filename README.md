@@ -573,14 +573,30 @@ echo $?  # Print the last exit code
 
 ### Conditional Statements
 
-#### Operators
+#### Boolean Operators
+
+- `$foo` - Is true
+- `!$foo` - Is false
+
+#### Numeric Operators
 
 - `-eq` - Equals
-- `-ne` - Not Equals
-- `-gt` - Greater Than
-- `-lt` - Less Than
+- `-ne` - Not equals
+- `-gt` - Greater than
+- `-ge` - Greater than or equal to
+- `-lt` - Less than
+- `-le` - Less than or equal to
 - `-e` foo.txt - Check file exists
 - `-z` foo - Check if variable exists
+
+#### String Operators
+
+- `=` - Equals
+- `==` - Equals
+- `-z` - Is null
+- `-n` - Is not null
+- `<` - Is less than in ASCII alphabetical order
+- `>` - Is greater than in ASCII alphabetical order
 
 #### If Statements
 
