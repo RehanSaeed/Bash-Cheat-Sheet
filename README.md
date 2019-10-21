@@ -404,12 +404,12 @@ at tomorrow                # Create a task in Vim to execute tomorrow
 ## HTTP Requests
 
 ```bash
-curl https://example.com                      # Return response body
-curl -i https://example.com                   # Include status code and HTTP headers
-curl -L https://example.com                   # Follow redirects
-curl https://example.com -o foo.txt           # Output to a text file
-curl -H "User-Agent: Foo" https://example.com # Add a HTTP header
-curl -X POST -H "Content-Type: application/json" -d '{"foo":"bar"}' https://example.com # POST JSON
+curl https://example.com                               # Return response body
+curl -i|--include https://example.com                  # Include status code and HTTP headers
+curl -L|--location https://example.com                 # Follow redirects
+curl -o|--remote-name foo.txt https://example.com      # Output to a text file
+curl -H|--header "User-Agent: Foo" https://example.com # Add a HTTP header
+curl -X|--request POST -H "Content-Type: application/json" -d|--data '{"foo":"bar"}' https://example.com # POST JSON
 curl -X POST -H --data-urlencode foo="bar" http://example.com                           # POST URL Form Encoded
 
 wget https://example.com/file.txt.            # Download a file to the current directory
