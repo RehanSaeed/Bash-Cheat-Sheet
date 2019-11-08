@@ -659,6 +659,11 @@ for filename in file1 file2 file3
   do
     echo "Content: " >> $filename
   done
+
+for filename in *;
+  do
+    echo "Content: " >> $filename
+  done
 ```
 
 #### Case Statements
