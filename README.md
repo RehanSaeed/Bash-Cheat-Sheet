@@ -674,7 +674,7 @@ for filename in *;
 ```bash
 #!/bin/bash
 
-echo 'What's the weather like tomorrow?'
+echo "What's the weather like tomorrow?"
 read weather
 
 case $weather in
