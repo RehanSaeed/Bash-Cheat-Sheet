@@ -307,12 +307,13 @@ free -s|--seconds 5    # Show memory usage and update continuously every five se
 ## Packages
 
 ```bash
-apt update             # Refreshes repository index
-apt search wget        # Search for a package
-apt show wget          # List information about the wget package
-apt install wget       # Install the wget package
-apt remove wget        # Removes the wget package
-apt upgrade            # Upgrades all upgradable packages
+apt update                   # Refreshes repository index
+apt search wget              # Search for a package
+apt show wget                # List information about the wget package
+apt list --all-versions wget # List all versions of the package
+apt install wget             # Install the wget package
+apt remove wget              # Removes the wget package
+apt upgrade                  # Upgrades all upgradable packages
 ```
 
 ## Shutdown and Reboot
