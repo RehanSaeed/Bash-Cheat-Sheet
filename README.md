@@ -558,8 +558,9 @@ unset foo              # Make foo unavailable to child processes
 ```bash
 #!/bin/bash
 
-env        # List all environment variables
-echo $PATH # Print PATH environment variable
+env            # List all environment variables
+echo $PATH     # Print PATH environment variable
+export FOO=Bar # Set an environment variable
 ```
 
 ### Functions
