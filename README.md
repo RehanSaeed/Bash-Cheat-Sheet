@@ -5,10 +5,14 @@
 ## Command History
 
 ```bash
-!!            # Run the last command
+history                            # View all previous commands
+history | grep foo                 # To search specific word in commands
+history | egrep -i 'foo|foo2|foo3' # For multiple command search
+history | tail -n 3                # Find the last few commands executed
+!!                                 # Run the last command
 
-touch foo.sh
-chmod +x !$   # !$ is the last argument of the last command i.e. foo.sh
+touch foo.sh     #<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<┐
+chmod +x !$                        # !$ is the last argument of the last command i.e. foo.sh <<<<┘
 ```
 
 ## Navigating Directories
