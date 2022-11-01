@@ -6,12 +6,13 @@
 
 ```bash
 history                            # View all previous commands
-history | grep foo                 # To search specific word in commands
-history | egrep -i 'foo|foo2|foo3' # For multiple command search
-history | tail -n 3                # Find the last few commands executed
-!!                                 # Run the last command
+history | grep foo                 # View the commands using a specific word
+history | egrep -i 'foo|foo2|foo3' # View the commands using more than 1 specific word
+history 3                          # View the last 3 executed commands
+history | head -n 3                # View the first 3 executed commands
+!!                                 # Run the last command executed
 
-touch foo.sh     #<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<┐
+touch foo.sh                       # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<┐
 chmod +x !$                        # !$ is the last argument of the last command i.e. foo.sh <<<<┘
 ```
 
