@@ -1,6 +1,41 @@
-# Bash Cheat Sheet
+# Bash Cheat Sheet Commands
 
- A cheat sheet for bash commands.
+### Contents
+
+- [Command History](#command-history)
+- [Navigating Directories](#navigating-directories)
+- [Creating Directories](#creating-directories)
+- [Moving Directories](#moving-directories)
+- [Deleting Directories](#deleting-directories)
+- [Creating Files](#creating-files)
+- [Standard Output, Standard Error and Standard Input](#standard-output-standard-error-and-standard-input)
+- [Moving Files](#moving-files)
+- [Deleting Files](#deleting-files)
+- [Reading Files](#reading-files)
+- [File Permissions](#file-permissions)
+- [Finding Files](#finding-files)
+- [Find in Files](#find-in-files)
+- [Replace in Files](#replace-in-files)
+- [Symbolic Links](#symbolic-links)
+- [Compressing Files](#compressing-files)
+- [Decompressing Files](#decompressing-files)
+- [Disk Usage](#disk-usage)
+- [Memory Usage](#memory-usage)
+- [Shutdown and Reboot](#shutdown-and-reboot)
+- [Identifying Processes](#identifying-processes)
+- [Process Priority](#process-priority)
+- [Killing Processes](#killing-processes)
+- [Date & Time](#date--time)
+- [Scheduled Tasks](#scheduled-tasks)
+- [HTTP Requests](#http-requests)
+- [Network Troubleshooting](#network-troubleshooting)
+- [DNS](#dns)
+- [Hardware](#hardware)
+- [Terminal Multiplexers](#terminal-multiplexers)
+- [Secure Shell Protocol (SSH)](#secure-shell-protocol-ssh)
+- [Secure Copy](#secure-copy)
+- [Bash Profile](#bash-profile)
+- [Bash Script](#bash-script)
 
 ## Command History
 
