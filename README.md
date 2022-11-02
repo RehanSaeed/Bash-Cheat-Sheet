@@ -27,15 +27,19 @@
 - [Killing Processes](#killing-processes)
 - [Date & Time](#date--time)
 - [Scheduled Tasks](#scheduled-tasks)
+- [User Mangement](#user-management)
 - [HTTP Requests](#http-requests)
 - [Network Troubleshooting](#network-troubleshooting)
 - [DNS](#dns)
 - [Hardware](#hardware)
+- [System Information](#system-information)
 - [Terminal Multiplexers](#terminal-multiplexers)
 - [Secure Shell Protocol (SSH)](#secure-shell-protocol-ssh)
 - [Secure Copy](#secure-copy)
 - [Bash Profile](#bash-profile)
 - [Bash Script](#bash-script)
+
+
 
 ## Command History
 
@@ -347,14 +351,27 @@ free -s|--seconds 5    # Show memory usage and update continuously every five se
 ## Packages
 
 ```bash
-apt update                   # Refreshes repository index
-apt search wget              # Search for a package
-apt show wget                # List information about the wget package
-apt list --all-versions wget # List all versions of the package
-apt install wget             # Install the latest version of the wget package
-apt install wget=1.2.3       # Install a specific version of the wget package
-apt remove wget              # Removes the wget package
-apt upgrade                  # Upgrades all upgradable packages
+apt update                      # Refreshes repository index
+apt search wget                 # Search for a package
+apt show wget                   # List information about the wget package
+apt list --all-versions wget    # List all versions of the package
+apt install wget                # Install the latest version of the wget package
+apt install wget=1.2.3          # Install a specific version of the wget package
+apt remove wget                 # Removes the wget package
+apt upgrade                     # Upgrades all upgradable packages
+
+dpkg -i package_name.deb        # Install deb file
+rpm -i package_name.rpm         # Install rpm file 
+```
+
+### Install package source code
+
+```bash
+tar zxvf sourcecode.tar.gz
+cd sourcecode
+./configure
+make
+make install
 ```
 
 ## Shutdown and Reboot
@@ -455,6 +472,18 @@ at 12:34 PM next month     # Create a task in Vim to execute at 12:34 PM next mo
 at tomorrow                # Create a task in Vim to execute tomorrow
 ```
 
+## User management
+
+```bash
+sudo adduser username 	  # To add a new user
+sudo passwd -l 'username' 	  # To change the password of a user
+sudo userdel -r 'username' 	  # To remove a newly created user
+sudo usermod -a -G GROUPNAME USERNAME 	  # To add a user to a group
+sudo deluser USER GROUPNAME 	  # To remove a user from a group
+finger 	  # Shows information of all the users logged in
+finger username 	  # Gives information of a particular user
+```
+
 ## HTTP Requests
 
 ```bash
@@ -509,6 +538,15 @@ cat /etc/resolv.conf        # resolv.conf lists nameservers
 lsusb                  # List USB devices
 lspci                  # List PCI hardware
 lshw                   # List all hardware
+```
+
+## System Information
+
+```
+uname -s               # Print kernel name
+uname -r               # Print kernel release
+uname -m               # Print Architecture
+uname -o               # Print Operating System
 ```
 
 ## Terminal Multiplexers
@@ -731,3 +769,4 @@ case $weather in
   ;;
 esac
 ```
+[⬆ Return to contents](#contents)
