@@ -436,11 +436,14 @@ killall foo            # Kill all process with the specified name gracefully.
 ## Date & Time
 
 ```bash
-date                   # Print the date and time
-date --iso-8601        # Print the ISO8601 date
-date --iso-8601=ns     # Print the ISO8601 date and time
+date                            # Print the date and time
+date --iso-8601                 # Print the ISO8601 date
+date --iso-8601=ns              # Print the ISO8601 date and time
 
-time tree              # Time how long the tree command takes to execute
+date -s "02 DEC 2020 12:02:02"  # Manually change date and time
+dpkg-reconfigure tzdata         # Change date/timezone
+
+time tree                       # Time how long the tree command takes to execute
 ```
 
 ## Scheduled Tasks
