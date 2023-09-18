@@ -84,7 +84,7 @@ echo "foo" >> bar.txt      # Append to file with content
 
 ls exists 1> stdout.txt    # Redirect the standard output to a file
 ls noexist 2> stderror.txt # Redirect the standard error output to a file
-ls 2>&1 out.txt            # Redirect standard output and error to a file
+ls 2>&1 > out.txt          # Redirect standard output and error to a file
 ls > /dev/null             # Discard standard output and error
 
 read foo                   # Read from standard input and write to the variable foo
