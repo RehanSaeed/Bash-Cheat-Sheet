@@ -609,7 +609,7 @@ echo $?  # Print the last exit code
 
 #### Numeric Operators
 
-- `-eq` - Equals
+- `-eq` - Equals /  equality check for numeric comparisons
 - `-ne` - Not equals
 - `-gt` - Greater than
 - `-ge` - Greater than or equal to
@@ -620,8 +620,8 @@ echo $?  # Print the last exit code
 
 #### String Operators
 
-- `=` - Equals
-- `==` - Equals
+- `=` - Equals / To check equality in Strings ( Works in POSIX and is more compatible)
+- `==` - Equals / To check equality of Strings ( More Specific to BASH)
 - `-z` - Is null
 - `-n` - Is not null
 - `<` - Is less than in ASCII alphabetical order
